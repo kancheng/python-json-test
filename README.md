@@ -1,2 +1,14 @@
 # python-json-test
 測試 JSON 匯入 Python
+
+## Demo
+
+```
+python3 dataloadjson.py
+```
+
+```
+<class 'dict'>
+{'type': 'dl-methods', 'datasets': [{'id': '1-12', 'status': 'ok', 'describe': '這個缺陷長得像考拉。'}, {'id': '2-24', 'status': 'ng', 'describe': 'This flaw looks like a koala.'}, {'id': '3-36', 'status': 'ok', 'describe': '这个缺陷长得像 考拉。'}, {'id': '4-48', 'status': 'ng', 'describe': 'この欠陥はコアラのように見えます'}, {'id': '5-12', 'status': 'ok', 'describe': 'Dieser Defekt sieht aus wie ein Koala.'}]}
+1-12
+```
