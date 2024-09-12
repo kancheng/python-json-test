@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+    <div>
+        <input type="file" id="files"/>
+    </div>
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+</body>
+    <script>
+        var inputElement = document.getElementById("files");
+        inputElement.addEventListener("change", handleFiles, false);
+        function handleFiles() {
+           var selectedFile = document.getElementById("files").files[0]; // Get the read File object; 获取读取的 File 对象; 取得讀取的 File 對象
+           var name = selectedFile.name; // 读取选中文件的文件名
+           var size = selectedFile.size; // 读取选中文件的大小
+           console.log("Document Name : " + name + "Size : " + size);
+           var reader = new FileReader(); // 这里是核心！！！读取操作就是由它完成的。
+            reader.readAsText(selectedFile); // 读取文件的内容
+    
+            reader.onload = function(){
+                console.log("Result : ", this.result); // 当读取完成之后会回调这个函数，然后此时文件的内容存储到了 result 中。直接操作即可。
+    
+                console.log("Read the result and convert it to JSON : ");
+                let json = JSON.parse(this.result);
+                console.log(json.type);
+                console.log(json.datasets);
+                console.log(json.datasets.id);
+            };
+    
+        }
+    </script>
+</html>
